@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import {addProduts} from '../../features/products/productsSlice'
 import "antd/dist/antd.css";
 import ProductItem from './ProductItem';
+import { v4 as uuidv4 } from 'uuid';
 
 
 
@@ -14,8 +15,11 @@ function AddProducts() {
   
 
   const products = useSelector((state) => state.products)
+  const categoryList =useSelector((state) => state.categoryList)
+
   const productList =products.products
-  //console.log(productList)
+const listOfCAtegory =categoryList.categoryList
+//console.log(listOfCAtegory)
   const dispatch = useDispatch()
   
     const [title, setTitle] = useState('')
@@ -24,14 +28,22 @@ function AddProducts() {
    
     const [arr , setArr] = useState([])
 
-    //console.log(title,quantity,category)
+   
      const handleSelect=(e)=>{
         setCategory(e.target.value)
        
     }
+    var date;
+    const getTime=()=>{
+      var today= new Date();
+      date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+     //console.log(date)
+    }
    
     const handleSubmit =()=>{
-        setArr((arr)=>[...arr, {title, quantity,category}])
+      getTime()
+     
+        setArr((arr)=>[...arr, {title, quantity,category, date:date, id:uuidv4().slice(0, 8)}])
      
         setTitle('')
         setCategory('')
@@ -39,7 +51,7 @@ function AddProducts() {
     }
 
 
-    console.log(arr)
+    //console.log(arr)
     useEffect(()=>{
       dispatch(addProduts(arr))
     },[arr])
@@ -63,29 +75,32 @@ function AddProducts() {
 </div>
 <div className="formfield">
   <label>Category</label>
+
+
   <div className="input-wrapper">
-  <select className='select' onChange={handleSelect} value={category}>
-   
-  <option value="">
-       select...
-      </option>
-      <option value="Luke Skywalker">
-        Luke Skywalker
-      </option>
-      <option value="C-3PO">C-3PO</option>
-      <option value="R2-D2">R2-D2</option>
-    </select>
-  </div>
+  <select onChange={handleSelect} className='select' >
+        {listOfCAtegory.map((option, index) => (
+          <option key={index} value={option.value}>
+            {option.text}
+          </option>
+        ))}
+      </select>
+    </div>
 </div>
 
 
 <div className='btn'>
   <input type="submit" value="Submit" onClick={handleSubmit}/>
 </div>
-<div>
- {productList && productList.map((item)=>{
+<div className='product-list-container'>
+  <h2>Product List</h2>
+
+ {productList.length>0 ? productList.map((item)=>{
   return <ProductItem key={item.title} {...item}/>
-})} 
+})
+ : <h3>Product List Is Empty</h3>
+ 
+ } 
 </div>
 
 

@@ -42,6 +42,11 @@ input {
     text-align: center;
 }
 
+.product-list-container {
+    border-top: 1px solid black;
+    margin-top: 20px;
+}
+
 
 /* 
 .form input {
