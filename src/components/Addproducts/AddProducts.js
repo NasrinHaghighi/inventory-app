@@ -6,7 +6,8 @@ import {addProduts} from '../../features/products/productsSlice'
 import "antd/dist/antd.css";
 import ProductItem from './ProductItem';
 import { v4 as uuidv4 } from 'uuid';
-
+import AddCategory from '../AddCategory/AddCategory';
+import SortProduct from './SortProduct';
 
 
 
@@ -19,12 +20,14 @@ function AddProducts() {
 
   const productList =products.products
 const listOfCAtegory =categoryList.categoryList
-//console.log(listOfCAtegory)
+
   const dispatch = useDispatch()
   
     const [title, setTitle] = useState('')
     const [quantity, setQuantity] =useState('')
-    const [category, setCategory] = useState('')
+    const [category, setCategory] = useState(listOfCAtegory[0])
+    const [showCategory, setShowcategory]= useState(false)
+    //console.log(category)
    
     const [arr , setArr] = useState([])
 
@@ -33,33 +36,45 @@ const listOfCAtegory =categoryList.categoryList
         setCategory(e.target.value)
        
     }
+    const resetSelect=()=>{
+
+    }
     var date;
     const getTime=()=>{
       var today= new Date();
-      date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+      date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate() + '   '+  today.getHours()+':'+  today.getMinutes();
      //console.log(date)
     }
    
     const handleSubmit =()=>{
       getTime()
-     
         setArr((arr)=>[...arr, {title, quantity,category, date:date, id:uuidv4().slice(0, 8)}])
-     
         setTitle('')
-        setCategory('')
+        setCategory(listOfCAtegory[0])
         setQuantity('')
     }
-
-
-    //console.log(arr)
     useEffect(()=>{
       dispatch(addProduts(arr))
     },[arr])
 
+    const showCategoryHandle=()=>{
+      setShowcategory(!showCategory)
+    }
+
   return (
-    <>
-    
-        <Row >
+        <>
+        <Row>
+        <Col span={12} offset={6} >
+          <div className='button-section'>
+        
+          <div className={showCategory ? 'active' : 'addCategory'} onClick={showCategoryHandle}>Add New Category?</div>
+          {showCategory ? <AddCategory showCategoryHandle={showCategoryHandle}/> : ''}
+          <br></br>
+          <div className='addProduct'>Add New Product</div>
+          </div>
+          </Col>
+        </Row>
+    <Row >
          <Col span={12} offset={6} className='conatiner'>
          <div className="formfield">
   <label>title</label>
@@ -78,7 +93,7 @@ const listOfCAtegory =categoryList.categoryList
 
 
   <div className="input-wrapper">
-  <select onChange={handleSelect} className='select' >
+  <select onChange={handleSelect} className='select' value={category.value}>
         {listOfCAtegory.map((option, index) => (
           <option key={index} value={option.value}>
             {option.text}
@@ -92,10 +107,14 @@ const listOfCAtegory =categoryList.categoryList
 <div className='btn'>
   <input type="submit" value="Submit" onClick={handleSubmit}/>
 </div>
+<div>
+  <SortProduct />
+</div>
 <div className='product-list-container'>
   <h2>Product List</h2>
 
  {productList.length>0 ? productList.map((item)=>{
+  console.log(item)
   return <ProductItem key={item.title} {...item}/>
 })
  : <h3>Product List Is Empty</h3>

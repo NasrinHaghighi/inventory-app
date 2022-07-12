@@ -1,1 +1,15 @@
-.App {}
+.App {
+    padding-top: 100px;
+    background-color: #069A8E;
+    color: #191917;
+    height: 100vh;
+    overflow: scroll;
+}
+
+input {
+    font-size: 15px !important;
+}
+
+textarea {
+    font-size: 15px !important;
+}

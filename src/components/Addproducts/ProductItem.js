@@ -13,7 +13,7 @@ function ProductItem({...item}) {
       
        <div className='tit'>{item.title}</div>
        <div className='ifo'>
-        <span >{item.date}</span>
+        <span className='time'>{item.date}</span>
         <span className='quantity'>{item.quantity}</span>
         <span className='category'>{item.category}</span>
       

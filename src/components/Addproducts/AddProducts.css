@@ -2,7 +2,7 @@
     padding: 20px;
     border-radius: 15px;
     margin-top: 20px;
-    background-color: rgb(134, 166, 101);
+    background-color: #A1E3D8;
 }
 
 input {
@@ -45,6 +45,23 @@ input {
 .product-list-container {
     border-top: 1px solid black;
     margin-top: 20px;
+}
+
+.button-section {}
+
+.button-section div {
+    font-size: 30px;
+}
+
+
+/*button**/
+
+.addCategory {
+    opacity: 0.5;
+}
+
+.active {
+    opacity: 1;
 }
 
 

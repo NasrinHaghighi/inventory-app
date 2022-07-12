@@ -9,23 +9,30 @@
 
 .ifo span {
     margin-right: 15px;
+    color: #293462;
 }
 
 .quantity {
+    color: #EC9B3B;
     padding: 8px;
     border-radius: 50%;
-    border: 1px solid black;
+    border: 2px solid #EC9B3B;
+}
+
+.time {
+    color: #293462;
 }
 
 .category {
+    color: #F7D716;
     padding: 8px;
     border-radius: 15px;
-    border: 1px solid black;
+    border: 2px solid #F7D716;
 }
 
 .delete {
     padding: 8px;
     border-radius: 15px;
-    border: 1px solid rgb(182, 57, 57);
-    color: rgb(182, 57, 57);
+    border: 2px solid rgb(207, 25, 25);
+    color: rgb(71, 26, 234);
 }
