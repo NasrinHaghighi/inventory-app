@@ -36,9 +36,7 @@ const listOfCAtegory =categoryList.categoryList
         setCategory(e.target.value)
        
     }
-    const resetSelect=()=>{
-
-    }
+  
     var date;
     const getTime=()=>{
       var today= new Date();
@@ -108,7 +106,7 @@ const listOfCAtegory =categoryList.categoryList
   <input type="submit" value="Submit" onClick={handleSubmit}/>
 </div>
 <div>
-  <SortProduct />
+ 
 </div>
 <div className='product-list-container'>
   <h2>Product List</h2>

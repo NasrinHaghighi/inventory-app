@@ -1,0 +1,18 @@
+.sort-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 50px 0;
+}
+
+.sortHeader {
+    font-size: 20px;
+}
+
+.sortSelect {
+    width: 30%;
+    border-radius: 15px;
+}
+
+.sortSelect option {
+    border-radius: 15px !important;
+}

@@ -36,3 +36,7 @@
     border: 2px solid rgb(207, 25, 25);
     color: rgb(71, 26, 234);
 }
+
+.time {
+    display: flex;
+}

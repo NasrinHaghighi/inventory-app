@@ -7,18 +7,18 @@ import { useSelector, useDispatch } from 'react-redux'
 
 function ProductItem({...item}) {
     const dispatch=useDispatch()
-    //console.log(item)
+    console.log(item.date)
   return (
     <div className='container'>
       
        <div className='tit'>{item.title}</div>
        <div className='ifo'>
-        <span className='time'>{item.date}</span>
+              
         <span className='quantity'>{item.quantity}</span>
         <span className='category'>{item.category}</span>
       
         <span className='delete' onClick={()=>dispatch(deleteProduts(item.id))}>Delete</span>
-       </div>
+       </div> 
     </div>
   )
 }
