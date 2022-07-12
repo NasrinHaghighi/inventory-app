@@ -37,22 +37,24 @@ const listOfCAtegory =categoryList.categoryList
        
     }
   
-    var date;
+    var today;
     const getTime=()=>{
-      var today= new Date();
-      date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate() + '   '+  today.getHours()+':'+  today.getMinutes();
-     //console.log(date)
+     today= new Date().getTime();
+      //date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate() + '   '+  today.getHours()+':'+  today.getMinutes();
+  
     }
-   
+    
     const handleSubmit =()=>{
       getTime()
-        setArr((arr)=>[...arr, {title, quantity,category, date:date, id:uuidv4().slice(0, 8)}])
+        setArr((arr)=>[...arr, {title, quantity,category, date:today, id:uuidv4().slice(0, 8)}])
+   
         setTitle('')
         setCategory(listOfCAtegory[0])
         setQuantity('')
     }
     useEffect(()=>{
       dispatch(addProduts(arr))
+      ///localStorage.setItem('products', JSON.stringify(arr));
     },[arr])
 
     const showCategoryHandle=()=>{
@@ -102,17 +104,18 @@ const listOfCAtegory =categoryList.categoryList
 </div>
 
 
+
 <div className='btn'>
   <input type="submit" value="Submit" onClick={handleSubmit}/>
 </div>
 <div>
- 
+<SortProduct />
 </div>
 <div className='product-list-container'>
   <h2>Product List</h2>
 
  {productList.length>0 ? productList.map((item)=>{
-  console.log(item)
+ 
   return <ProductItem key={item.title} {...item}/>
 })
  : <h3>Product List Is Empty</h3>

@@ -15,7 +15,7 @@ export const productsSlice = createSlice({
         },
         deleteProduts: (state, action) => {
             let tempPro = state.products
-            console.log(tempPro)
+                //console.log(tempPro)
             tempPro = tempPro.filter((item) => {
                 return item.id !== action.payload
             })
@@ -24,20 +24,24 @@ export const productsSlice = createSlice({
 
         //sort//
         sortProducts: (state, action) => {
-            if (action.payload === '') return
+
+
+
             if (action.payload === 'newest') {
                 let tempPro = state.products
-                console.log(tempPro)
-
-
+                tempPro.sort((a, b) => b.date - a.date)
+                state.products = tempPro
 
             }
             if (action.payload === 'oldest') {
-                console.log('oldest')
+                let tempPro = state.products
+                tempPro.sort((a, b) => a.date - b.date)
+                state.products = tempPro
             }
-            if (action.payload === '24ago') {
-                console.log('24ago')
-            }
+            // if (action.payload === '24ago') {
+            //     console.log('24ago')
+            // }
+            // if (action.payload === '') return
 
 
         },

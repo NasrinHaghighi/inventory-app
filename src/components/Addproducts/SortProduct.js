@@ -9,7 +9,7 @@ const sortItem= [
     { value: '', text: '--sort by--' },
     { value: 'newest', text: 'Newest' },
     { value: 'oldest', text: 'Oldest' },
-    { value: '24ago', text: '24 Hours Ago' },
+    
 ]
 
 function SortProduct() {

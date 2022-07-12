@@ -7,20 +7,25 @@
     padding: 15px;
 }
 
-.ifo span {
+.info {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.info div {
     margin-right: 15px;
-    color: #293462;
 }
 
 .quantity {
-    color: #EC9B3B;
+    color: #f78902;
     padding: 8px;
     border-radius: 50%;
-    border: 2px solid #EC9B3B;
+    border: 2px solid #f68904;
 }
 
 .time {
-    color: #293462;
+    color: #304dc3;
 }
 
 .category {
@@ -34,9 +39,5 @@
     padding: 8px;
     border-radius: 15px;
     border: 2px solid rgb(207, 25, 25);
-    color: rgb(71, 26, 234);
-}
-
-.time {
-    display: flex;
+    color: red;
 }
