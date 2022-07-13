@@ -45,10 +45,18 @@ export const productsSlice = createSlice({
 
 
         },
+        searchProducts: (state, action) => {
+            console.log(action.payload)
+            let tempPro = state.products
+            tempPro = tempPro.filter((item) => {
+                return item.title.includes(action.payload)
+            })
+            state.products = tempPro
+        }
     },
 })
 
 // Action creators are generated for each case reducer function
-export const { addProduts, deleteProduts, sortProducts } = productsSlice.actions
+export const { addProduts, deleteProduts, sortProducts, searchProducts } = productsSlice.actions
 
 export default productsSlice.reducer

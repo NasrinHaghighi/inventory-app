@@ -8,6 +8,7 @@ import ProductItem from './ProductItem';
 import { v4 as uuidv4 } from 'uuid';
 import AddCategory from '../AddCategory/AddCategory';
 import SortProduct from './SortProduct';
+import SearchProducts from './SearchProducts';
 
 
 
@@ -109,6 +110,10 @@ const listOfCAtegory =categoryList.categoryList
   <input type="submit" value="Submit" onClick={handleSubmit}/>
 </div>
 <div>
+  <SearchProducts />
+</div>
+<div>
+
 <SortProduct />
 </div>
 <div className='product-list-container'>
