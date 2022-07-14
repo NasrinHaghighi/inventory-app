@@ -38,15 +38,9 @@ export const productsSlice = createSlice({
                 tempPro.sort((a, b) => a.date - b.date)
                 state.products = tempPro
             }
-            // if (action.payload === '24ago') {
-            //     console.log('24ago')
-            // }
-            // if (action.payload === '') return
-
-
         },
         searchProducts: (state, action) => {
-            console.log(action.payload)
+
             let tempPro = state.products
             tempPro = tempPro.filter((item) => {
                 return item.title.includes(action.payload)

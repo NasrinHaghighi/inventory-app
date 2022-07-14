@@ -2,10 +2,10 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
     categoryList: [
-        { value: '', text: '--Choose an option--' },
-        { value: 'fruits', text: 'Fruits', des: 'this category is includes all fruits' },
-        { value: 'vegtable', text: 'Vegtable', des: 'this category is includes all vegtable' },
-        { value: 'meat', text: 'Meat', des: 'this category is includes cow meat' },
+        { value: '', text: '--Choose an option--', des: 'ssssssssssss' },
+        { value: 'fruits', text: 'Fruits', des: 'ffff' },
+        { value: 'vegtable', text: 'Vegtable', des: 'vv' },
+        { value: 'meat', text: 'Meat', des: 'mmm' },
     ]
 }
 

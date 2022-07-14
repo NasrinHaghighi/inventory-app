@@ -2,12 +2,14 @@ import React from 'react'
 import './ProductItem.css'
 import {deleteProduts} from '../../features/products/productsSlice'
 import { useSelector, useDispatch } from 'react-redux'
+import { Tooltip } from 'antd';
+import "antd/dist/antd.css";
 
 
 
 function ProductItem({...item}) {
     const dispatch=useDispatch()
-    //console.log(item)
+    console.log(item)
    const today=item.date
    const today1=new Date(today)
    const date1=today1.getFullYear() + '-' + (today1.getMonth() + 1) + '-' + today1.getDate() 
@@ -21,9 +23,11 @@ function ProductItem({...item}) {
       <div className='tit'>{item.title}</div>
       <div className='info'>
       <div className='time'>{date1}</div>
-      <div className='time'>{date2}</div> 
-      <div className='category'>{item.category}</div>
-      <div className='quantity'>{item.quantity}</div>
+      <div className='time'>{date2}</div>
+      <Tooltip title="nasrin">
+      <span className='category'>{item.category}</span>
+      </Tooltip>
+      <span className='quantity'>{item.quantity}</span>
       <div className='delete' onClick={()=>dispatch(deleteProduts(item.id))}>Delete</div>
       </div>
     </div>
