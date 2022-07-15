@@ -21,7 +21,7 @@ function AddProducts() {
 
   const productList =products.products
 const listOfCAtegory =categoryList.categoryList
-
+//console.log(listOfCAtegory)
   const dispatch = useDispatch()
   
     const [title, setTitle] = useState('')
@@ -34,9 +34,10 @@ const listOfCAtegory =categoryList.categoryList
 
    
      const handleSelect=(e)=>{
-        setCategory(e.target.value)
-       
-    }
+      console.log(e.target.value)
+       setCategory(listOfCAtegory[e.target.value])
+      console.log(listOfCAtegory[e.target.value])
+       }
   
     var today;
     const getTime=()=>{
@@ -48,10 +49,10 @@ const listOfCAtegory =categoryList.categoryList
     const handleSubmit =()=>{
       getTime()
         setArr((arr)=>[...arr, {title, quantity,category, date:today, id:uuidv4().slice(0, 8)}])
-   
-        setTitle('')
-        setCategory(listOfCAtegory[0])
-        setQuantity('')
+  console.log(arr)
+        // setTitle('')
+        // setCategory(listOfCAtegory[0])
+        // setQuantity('')
     }
     useEffect(()=>{
       dispatch(addProduts(arr))
@@ -96,7 +97,7 @@ const listOfCAtegory =categoryList.categoryList
   <div className="input-wrapper">
   <select onChange={handleSelect} className='select' value={category.value}>
         {listOfCAtegory.map((option, index) => (
-          <option key={index} value={option.value}>
+          <option key={index} value={option.id} >
             {option.text}
           </option>
         ))}

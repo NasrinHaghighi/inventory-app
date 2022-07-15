@@ -24,10 +24,12 @@ function ProductItem({...item}) {
       <div className='info'>
       <div className='time'>{date1}</div>
       <div className='time'>{date2}</div>
-      <Tooltip title="nasrin">
-      <span className='category'>{item.category}</span>
-      </Tooltip>
+    <Tooltip title={item.category.des}>
+       <span className='category'>{item.category.value} </span> 
+       </Tooltip>
+       <Tooltip title='Quantity'>
       <span className='quantity'>{item.quantity}</span>
+      </Tooltip>
       <div className='delete' onClick={()=>dispatch(deleteProduts(item.id))}>Delete</div>
       </div>
     </div>

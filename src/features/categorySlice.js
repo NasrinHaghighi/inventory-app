@@ -2,10 +2,10 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
     categoryList: [
-        { value: '', text: '--Choose an option--', des: 'ssssssssssss' },
-        { value: 'fruits', text: 'Fruits', des: 'ffff' },
-        { value: 'vegtable', text: 'Vegtable', des: 'vv' },
-        { value: 'meat', text: 'Meat', des: 'mmm' },
+        { id: 0, value: '', text: '--Choose an option--', des: 'ssssssssssss' },
+        { id: 1, value: 'fruits', text: 'Fruits', des: 'ffff' },
+        { id: 2, value: 'vegtable', text: 'Vegtable', des: 'vv' },
+        { id: 3, value: 'meat', text: 'Meat', des: 'mmm' },
     ]
 }
 
@@ -16,6 +16,7 @@ export const categorySlice = createSlice({
         addCategory: (state, action) => {
             //console.log(action.payload)
             state.categoryList = action.payload
+            console.log(state.categoryList)
 
         },
 

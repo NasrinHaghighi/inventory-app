@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { Button, Form, Input, Select, Typography ,Row, Col } from 'antd';
 import { useSelector, useDispatch } from 'react-redux'
 import {addCategory} from '../../features/categorySlice'
-
+import { v4 as uuidv4 } from 'uuid';
 import "antd/dist/antd.css";
 import './AddCategory.css'
 
@@ -16,17 +16,23 @@ function AddCategory({showCategoryHandle}) {
     const [title, setTitle] =useState('')
     const [des, setDes] =useState('')
     const [newCategory, setNewCategory]=useState(listOfCAtegory)
+
+    const itemIds=newCategory.map((item)=>{
+    return item.id
+    })
+   let max=Math.max(...itemIds)
    
 
     const submiteCategory=()=>{
-      setNewCategory((newCategory)=>[...newCategory, {value:title, text:title, des:des}])
+      setNewCategory((newCategory)=>[...newCategory, {id:max+1,value:title, text:title, des:des}])
+      console.log(newCategory)
       setDes('')
       setTitle('')
     }
    
-   useEffect(()=>{
+  
 dispatch(addCategory(newCategory))
-   },[newCategory])
+
   return (
    
            <Row>
