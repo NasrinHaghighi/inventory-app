@@ -50,9 +50,9 @@ const listOfCAtegory =categoryList.categoryList
       getTime()
         setArr((arr)=>[...arr, {title, quantity,category, date:today, id:uuidv4().slice(0, 8)}])
   console.log(arr)
-        // setTitle('')
-        // setCategory(listOfCAtegory[0])
-        // setQuantity('')
+        setTitle('')
+         setCategory(listOfCAtegory[0])
+        setQuantity('')
     }
     useEffect(()=>{
       dispatch(addProduts(arr))

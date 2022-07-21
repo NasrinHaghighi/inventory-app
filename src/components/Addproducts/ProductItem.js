@@ -1,6 +1,7 @@
 import React from 'react'
 import './ProductItem.css'
 import {deleteProduts} from '../../features/products/productsSlice'
+import Slide from 'react-reveal/Slide';
 import { useSelector, useDispatch } from 'react-redux'
 import { Tooltip } from 'antd';
 import "antd/dist/antd.css";
@@ -19,6 +20,7 @@ function ProductItem({...item}) {
    const date2=today1.getHours()+':'+  today1.getMinutes()
   
   return (
+    <Slide bottom>
     <div className='container'>
       <div className='tit'>{item.title}</div>
       <div className='info'>
@@ -33,6 +35,7 @@ function ProductItem({...item}) {
       <div className='delete' onClick={()=>dispatch(deleteProduts(item.id))}>Delete</div>
       </div>
     </div>
+    </Slide>
   )
 }
 

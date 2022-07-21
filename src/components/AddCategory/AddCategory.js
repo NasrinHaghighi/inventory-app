@@ -1,4 +1,6 @@
 import React, {useState, useEffect} from 'react'
+import Fade from 'react-reveal/Fade';
+
 import { Button, Form, Input, Select, Typography ,Row, Col } from 'antd';
 import { useSelector, useDispatch } from 'react-redux'
 import {addCategory} from '../../features/categorySlice'
@@ -34,9 +36,11 @@ function AddCategory({showCategoryHandle}) {
 dispatch(addCategory(newCategory))
 
   return (
-   
+    <Fade bottom cascade>
            <Row>
+           
          <Col span={24} offset={6} className='container-Category'>
+         
          <div className="formfield">
        <label>title</label>
            <div className="input-wrapper">
@@ -55,8 +59,11 @@ dispatch(addCategory(newCategory))
           <input type="submit" value="Submit" onClick={submiteCategory}/>
           <input type="submit" value="Cancle" onClick={showCategoryHandle}/>
      </div>
+   
          </Col>
+     
           </Row>
+          </Fade>
    
   )
 }

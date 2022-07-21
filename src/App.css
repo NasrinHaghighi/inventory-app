@@ -1,13 +1,17 @@
 .App {
     padding-top: 100px;
-    background-color: #069A8E;
     color: #191917;
     height: 100vh;
     overflow: scroll;
 }
 
 input {
-    font-size: 15px !important;
+    font-size: 20px !important;
+}
+
+select {
+    font-size: 20px !important;
+    color: #191917 !important;
 }
 
 textarea {

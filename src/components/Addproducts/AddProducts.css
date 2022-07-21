@@ -2,7 +2,10 @@
     padding: 20px;
     border-radius: 15px;
     margin-top: 20px;
-    background-color: #A1E3D8;
+    margin-bottom: 200px;
+    color: #111111;
+    background-color: #11324D;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
 input {
@@ -20,6 +23,8 @@ input {
 .formfield .input-wrapper {
     display: table-cell;
     vertical-align: top;
+    font-size: 24px !important;
+    color: #ffff;
 }
 
 .formfield label {
@@ -40,14 +45,19 @@ input {
 .btn {
     margin-top: 15px;
     text-align: center;
+    color: yellow !important;
+}
+
+.btn input {
+    width: 100%;
+    background-color: transparent;
+    border: 2px solid yellow;
 }
 
 .product-list-container {
     border-top: 1px solid black;
     margin-top: 20px;
 }
-
-.button-section {}
 
 .button-section div {
     font-size: 30px;
