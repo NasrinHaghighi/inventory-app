@@ -55,10 +55,13 @@ input {
 }
 
 .product-list-container {
-    border-top: 1px solid black;
+    border-top: 1px solid rgb(237, 151, 13);
     margin-top: 20px;
+  
 }
-
+.bigTiti{
+    color: antiquewhite;
+}
 .button-section div {
     font-size: 30px;
 }

@@ -16,11 +16,16 @@
     width: 100%;
     padding-bottom: 25px;
 }
+.formfield label{
+    display: table-cell;
+    vertical-align: top;
+    color: rgb(244, 236, 236) !important; 
+}
 
-.formfield label,
 .formfield .input-wrapper {
     display: table-cell;
     vertical-align: top;
+    color: rgb(24, 23, 23) !important;
 }
 
 .formfield label {

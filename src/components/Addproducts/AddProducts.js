@@ -118,13 +118,13 @@ const listOfCAtegory =categoryList.categoryList
 <SortProduct />
 </div>
 <div className='product-list-container'>
-  <h2>Product List</h2>
+  <h1 className='bigTiti'>Product List</h1>
 
  {productList.length>0 ? productList.map((item)=>{
  
   return <ProductItem key={item.title} {...item}/>
 })
- : <h3>Product List Is Empty</h3>
+ : <h3 className='bigTiti'>Product List Is Empty</h3>
  
  } 
 </div>
